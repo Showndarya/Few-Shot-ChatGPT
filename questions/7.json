@@ -1,0 +1,14 @@
+{
+    "Id": "8",
+    "Question": "How many weights are in the max pooling operation of the image $X$ above with a 2x2 kernel, with stride of 2, and padding with a value of 1, 1 pixel on the right side and bottom of the image.",
+    "Solution": "0.  Max pooling layers don't have learnable parameters.",
+    "ChatGPTSolution": "Max pooling does not have weights, as it is a down-sampling operation that takes the maximum value in a small region (or \"kernel\") of the input. The purpose of max pooling is to reduce the spatial size of the input by taking the maximum value in a given region and discarding the rest, while preserving the important features and reducing the computation required in the next layer.\n\nIn this case, the image has a 2x2 kernel, stride of 2, and padding of 1 pixel on the right side and bottom. This means that the max pooling operation will take the maximum value in a 2x2 region of the input, and slide the kernel by 2 pixels each time. The padding will increase the size of the input by adding 1 pixel on the right and bottom, so the spatial size of the input will not change.\n\nThe number of values output by the max pooling operation will depend on the size of the input image and the size of the kernel and stride, but the number of weights involved in the operation is 0.",
+    "Grade": "1",
+    "SimilarQuestions": [
+        9,
+        0,
+        10
+    ],
+    "FewShotAnswer": "",
+    "FewSHotEvaluation": ""
+}

@@ -1,0 +1,14 @@
+{
+    "Id": "14",
+    "Question": "Which of the following is true of the weights in a recurrent neural network?\n\\begin{enumerate}[label=\\alph*.]\n    \\item[a.] The weights are shared between all time steps.\n    \\item[b.] The weights are different for each time step.\n    \\item[c.] The weights are different for each input.\n    \\item[d.] The weights are different for each output.\n\\end{enumerate}",
+    "Solution": "a.",
+    "ChatGPTSolution": "The correct answer is a. The weights are shared between all time steps.\n\nIn a recurrent neural network (RNN), the same set of weights is used at each time step in the input sequence. This allows the RNN to learn features that persist across different time steps, and maintain information from the previous time step as the input sequence is processed. The weights in the RNN are updated during training to minimize the prediction error on the training data.",
+    "Grade": "1",
+    "SimilarQuestions": [
+        10,
+        9,
+        21
+    ],
+    "FewShotAnswer": "",
+    "FewSHotEvaluation": ""
+}

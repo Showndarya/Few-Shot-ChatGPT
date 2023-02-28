@@ -1,0 +1,14 @@
+{
+    "Id": "21",
+    "Question": "Select the best type of model for each use case, matching the use case to the options provided:\n\n\\noindent\nUse cases:\n\\begin{enumerate}[label=\\alph*.]\n    \\item[1.]\n    Tumor segmentation analysis or recognizing tumor patches in medical ``slides''.\n    \\item[2.]\n    Sentiment analysis on a large text corpus.\n    \\item[3.]\n    Time series forecasting to predict price of automobile in the next month.\n    \\item[4.]\n    Predict the price of a house based on square feet, ratio of bedrooms/bathrooms.\n\\end{enumerate}\n\n\\noindent\nOptions: CNN, RNN, Fully connected neural network",
+    "Solution": "(1) CNN, (2) RNN, (3) RNN, (4) Fully connected neural network.",
+    "ChatGPTSolution": "Use cases and best type of model:\n\nTumor segmentation analysis or recognizing tumor patches in medical \"slides\": CNN\nSentiment analysis on a large text corpus: Fully connected neural network\nTime series forecasting to predict price of automobile in the next month: RNN\nPredict the price of a house based on square feet, ratio of bedrooms/bathrooms: Fully connected neural network",
+    "Grade": "0",
+    "SimilarQuestions": [
+        10,
+        9,
+        12
+    ],
+    "FewShotAnswer": "",
+    "FewSHotEvaluation": ""
+}

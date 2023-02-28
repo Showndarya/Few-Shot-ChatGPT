@@ -1,0 +1,14 @@
+{
+    "Id": "3",
+    "Question": "Which of the following are true of pooling layers in CNNs?\n\\begin{enumerate}[label=\\alph*.]\n    \\item They reduce the size of the input to the next layer. \n    \\item They increase the number of parameters.\n    \\item They reduce the number of connections to the next layer. \n    \\item They reduce the number of parameters.\n\\end{enumerate}",
+    "Solution": "a, c, d. \\, b is false because pooling neither adds to nor subtracts from parameters.",
+    "ChatGPTSolution": "The correct answers are:\n\na) They reduce the size of the input to the next layer.\nc) They reduce the number of connections to the next layer.\nd) They reduce the number of parameters.\n\nPooling layers in Convolutional Neural Networks (ConvNets or CNNs) are used to reduce the spatial size of the representation, which helps to reduce the number of parameters and computational costs. Pooling layers typically use a simple operation, such as max pooling or average pooling, to summarize the information in a local neighborhood of the input. This summary information is then used as the input to the next layer, which helps to reduce the size of the input and the number of connections to the next layer. This also helps to reduce overfitting by reducing the number of parameters, as well as to provide translation invariance by allowing the network to recognize objects regardless of their location in the image.\n",
+    "Grade": "1",
+    "SimilarQuestions": [
+        10,
+        9,
+        13
+    ],
+    "FewShotAnswer": "",
+    "FewSHotEvaluation": ""
+}

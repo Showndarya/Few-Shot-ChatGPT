@@ -1,0 +1,14 @@
+{
+    "Id": "4",
+    "Question": "Consider the following CNN architecture:\n\nInput: (10, 10, 3)\n\\begin{enumerate}[label=-]\n\\item A convolutional layer with 32 5 \u00d7 5 filters, stride 1, and padding 2\n\n\\item A ReLU activation layer\n\n\\item A max pooling layer with size 2 and stride 2\n\n\\item A convolutional layer with 64 5 \u00d7 5 filters, stride 1, and padding 2\n\n\\item A ReLU activation layer\n\n\\item A max pooling layer with size 2 and stride 2\n\n\\item A fully-connected layer with 128 neurons\n\n\\item A ReLU activation layer\n\n\\item A dropout layer with drop probability 0.5\n\n\\item A fully-connected layer with 10 neurons\n\n\\item A softmax activation layer\n\\end{enumerate}\nWhat is the total number of parameters in this network?",
+    "Solution": "The learnable parameters in this CNN architecture are:\n\\begin{itemize}\n    \\item[\u2022]\n    $32 \\times (5 \\times 5 \\times 3 + 1) = 2432$ parameters from the first convolutional layer\n    \\item[\u2022]\n    $64 \\times (5 \\times 5 \\times 32 + 1) = 51264$ parameters from the second convolutional layer\n    \\item[\u2022]\n    $128 \\times (2 \\times 2 \\times 64 + 1) = 32896$ parameters from the first fully-connected layer\n    \\item[\u2022]\n    $10 \\times (128 + 1) = 1290$ parameters from the second fully-connected layer\n\\end{itemize}\nNote that all the ``$+1$''s account for the bias terms, $(5, 5, 32)$ is the input shape after the 1st max pooling, and $(2, 2, 64)$ is the input shape after the 2nd max pooling.  Adding up these numbers, we get $87882$ learnable parameters in total.  (Alternatively, if you did not account for any bias term, you would get $63306$ learnable parameters in total, which is also accepted as correct answer.)",
+    "ChatGPTSolution": "The total number of parameters in this network can be calculated as follows:\n\nConvolutional layer 1: 32 filters with 5 \u00d7 5 kernel size, so there are 32 * (5 * 5 * 3 + 1) = 32 * 26 = 832 parameters.\n\nConvolutional layer 2: 64 filters with 5 \u00d7 5 kernel size, so there are 64 * (5 * 5 * 32 + 1) = 64 * 832 = 53248 parameters.\n\nFully-connected layer 1: 128 neurons, so there are 128 * (7 * 7 * 64 + 1) = 128 * 3136 = 401408 parameters.\n\nFully-connected layer 2: 10 neurons, so there are 10 * (128 + 1) = 1290 parameters.\n\nThe total number of parameters in the network is 832 + 53248 + 401408 + 1290 = 453878 parameters.",
+    "Grade": "0",
+    "SimilarQuestions": [
+        9,
+        7,
+        2
+    ],
+    "FewShotAnswer": "",
+    "FewSHotEvaluation": ""
+}

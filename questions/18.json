@@ -1,0 +1,14 @@
+{
+    "Id": "19",
+    "Question": "Given an RNN defined by $s_t = W \\cdot s_{t - 1} + U \\cdot x_t$ with $W = [ [ -1 , 0 ] , [ 0 , -1 ] ]$, $U = [ [ 1 ] , [ 1 ] ]$, and $s_0 = [ [ 0 ] , [ 0 ] ]$, what is $s_2$ for $x = ( x_1 , x_2 ) = ( 1 , 0 )$?",
+    "Solution": "$[-1, -1]$.",
+    "ChatGPTSolution": "We can calculate the hidden state $s_t$ for each time step $t$ by starting with the initial hidden state $s_0$ and iteratively updating it with the input and weight matrices $x_t$ and $W$:\n\n$s_1 = W \\cdot s_0 + U \\cdot x_1 = W \\cdot [ [ 0 ] , [ 0 ] ] + U \\cdot [ [ 1 ] ] = [ [ 1 ] , [ 1 ] ]$\n\n$s_2 = W \\cdot s_1 + U \\cdot x_2 = W \\cdot [ [ 1 ] , [ 1 ] ] + U \\cdot [ [ 0 ] ] = [ [ -1 ] , [ -1 ] ]$\n\nTherefore, the hidden state $s_2$ is $[ [ -1 ] , [ -1 ] ]$.",
+    "Grade": "1",
+    "SimilarQuestions": [
+        14,
+        16,
+        7
+    ],
+    "FewShotAnswer": "",
+    "FewSHotEvaluation": ""
+}

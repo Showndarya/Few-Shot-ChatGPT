@@ -1,0 +1,14 @@
+{
+    "Id": "11",
+    "Question": "Which of the following are true of convolutional neural networks for image analysis?\n\\begin{enumerate}[label=\\alph*.]\n    \\item[a.] Filters in earlier layers tend to include edge detectors. \n    \\item[b.] Pooling layers reduce the spatial resolution of the image.\n    \\item[c.] They have more parameters than fully-connected networks with the same number of layers and the same number of neurons in each layer.\n    \\item[d.] A CNN can be trained for unsupervised learning tasks, whereas an ordinary neural net cannot. \n\\end{enumerate}",
+    "Solution": "a, b.  CNNs have generally less parameters than fully-connected networks with the same number of layers and neurons, which is why CNNs are more efficient.  Also, any neural network can be trained to perform unsupervised learning tasks --- at least in principle.",
+    "ChatGPTSolution": "The following statements are true of Convolutional Neural Networks (CNNs) for image analysis:\n\na. Filters in earlier layers tend to include edge detectors.\nb. Pooling layers reduce the spatial resolution of the image.\n\nThe following statement is false:\n\nc. They have more parameters than fully-connected networks with the same number of layers and the same number of neurons in each layer. (It is often the case that CNNs have fewer parameters than fully-connected networks with the same number of neurons, due to the weight sharing mechanism inherent to convolutional layers.)\n\nThe following statement is also false:\n\nd. A CNN can be trained for unsupervised learning tasks, whereas an ordinary neural net cannot. (Both CNNs and fully-connected neural networks can be trained for supervised and unsupervised learning tasks.)",
+    "Grade": "1",
+    "SimilarQuestions": [
+        2,
+        9,
+        13
+    ],
+    "FewShotAnswer": "",
+    "FewSHotEvaluation": ""
+}

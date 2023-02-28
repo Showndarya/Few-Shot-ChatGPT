@@ -1,0 +1,14 @@
+{
+    "Id": "9",
+    "Question": "Which of the following is the correct filter for detecting horizontal edges?\n\\begin{enumerate}[label=\\alph*.]\n    \\item[a.]\n$$\\left(\\begin{matrix}\n1 & 0 & -1\\\\\n1 & 0 & -1\\\\\n1 & 0 & -1\n\\end{matrix}\\right)$$\n    \n    \\item[b.]\n$$\\left(\\begin{matrix}\n1 & 1 & 1\\\\\n0 & 0 & 0\\\\\n-1 & -1 & -1\n\\end{matrix}\\right)$$\n\n    \\item[c.]\n$$\\left(\\begin{matrix}\n1 & -1 & 1\\\\\n0 & -1 & 0\\\\\n1 & -1 & 1\n\\end{matrix}\\right)$$\n\n    \\item[d.]\n$$\\left(\\begin{matrix}\n1 & -1 & -1\\\\\n1 & 1 & -1\\\\\n1 & 0 & -1\n\\end{matrix}\\right)$$\n\\end{enumerate}",
+    "Solution": "b.  Horizontal filters is the best for detecting horizontal edges.",
+    "ChatGPTSolution": "The correct filter for detecting horizontal edges is b.\n\nThe filter shown in b is commonly used for detecting horizontal edges in image processing. This filter is designed to detect changes in intensity or color along the horizontal axis by subtracting the value in one pixel from the value in the pixel directly above it. The result of this subtraction will be high for pixels that represent a horizontal edge, and low for pixels that do not.\n\nThe other filters shown in options a, c, and d do not have the same pattern of positive and negative values that is optimized for detecting horizontal edges.",
+    "Grade": "1",
+    "SimilarQuestions": [
+        16,
+        10,
+        9
+    ],
+    "FewShotAnswer": "",
+    "FewSHotEvaluation": ""
+}

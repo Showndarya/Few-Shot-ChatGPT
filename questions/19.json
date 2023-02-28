@@ -1,0 +1,14 @@
+{
+    "Id": "20",
+    "Question": "Suppose you would like to classify restaurant reviews as good or bad. Why is a bag of words not an appropriate solution? Explain.",
+    "Solution": "A bag-of-words representation does not take into account word order which is important for classifying reviews.",
+    "ChatGPTSolution": "A bag of words approach to classifying restaurant reviews as good or bad is not appropriate for several reasons:\n\nLack of context: A bag of words representation only considers the frequency of individual words in a document, but it doesn't take into account the context in which they appear. For example, a review containing the word \"bad\" could either mean that the restaurant is bad, or that the reviewer's experience was bad.\n\nWord ambiguity: Some words can have different meanings depending on the context, making it difficult to determine their sentiment. For example, the word \"good\" could indicate a positive sentiment, but it could also mean \"well-made\" or \"tasty\".\n\nWord order: The order in which words appear can also convey important information about sentiment. For example, the sentence \"The food was not good\" and \"The food was good\" convey completely different sentiments, even though they contain the same words.\n\nOverall, a bag of words representation does not capture the rich linguistic information necessary to accurately classify sentiment in restaurant reviews. More sophisticated models, such as those based on neural networks, are better suited to this task.",
+    "Grade": "1",
+    "SimilarQuestions": [
+        12,
+        10,
+        9
+    ],
+    "FewShotAnswer": "",
+    "FewSHotEvaluation": ""
+}

@@ -1,0 +1,516 @@
+1,Determine how many pixels of padding we need on the input of size 80 by 80 to ensure our filter 31 by 31 gives an output of the same size.,"15. For an image of size $(x, x)$, a padding of size $a$, and a filter of size $(y, y)$ with default stride size of $1$, the output size is $((x+2a) - y)/1 + 1$.  In this case, we have $\frac{(x+2a) - y}{1} + 1 = x$ where $x=80$ and $y=31$.  Solving for $a$, we get $a=15$.","To determine the amount of padding needed to ensure that the output size is the same as the input size, we need to consider the stride and the filter size.
+
+Assuming a stride of 1, the formula for the output size of a convolutional layer is given by:
+
+css
+Copy code
+output_size = (input_size - filter_size + 2 * padding) / stride + 1
+Setting the output size to be equal to the input size (80), we can solve for padding:
+
+css
+Copy code
+80 = (80 - 31 + 2 * padding) / 1 + 1
+80 = (49 + 2 * padding) / 1 + 1
+80 = 51 + 2 * padding
+29 = 2 * padding
+padding = 14.5
+Since padding must be an integer, we round up to 15 or down to 14. Both cases work, and either one can be used. The choice between them can be determined by the specific requirements of the problem at hand or personal preference.
+
+So, the answer is either 14 or 15 pixels of padding on the input of size 80 by 80 to ensure the output is the same size.",1,,,
+2,"Which of the following are true of convolutional neural networks for image analysis? 
+\begin{enumerate}[label=\alph*.]
+    \item They are trained using backpropagation. 
+    \item They are trained using gradient descent.
+    \item They are trained using supervised learning . 
+    \item They are trained using unsupervised learning.
+\end{enumerate}","a, b, and c.","a) They are trained using backpropagation.
+c) They are trained using supervised learning.
+
+Convolutional neural networks (ConvNets or CNNs) are a type of deep neural network commonly used for image analysis tasks such as image classification, object detection, and semantic segmentation. ConvNets are typically trained using supervised learning, where a labeled dataset is used to train the network to perform a specific task. During training, the network uses backpropagation to adjust the weights of the filters in the convolutional layers to minimize the difference between the predicted output and the actual output. The optimization process is typically performed using gradient descent algorithms, which help the network to converge to a solution.",0,,,
+3,"Which of the following are true of pooling layers in CNNs?
+\begin{enumerate}[label=\alph*.]
+    \item They reduce the size of the input to the next layer. 
+    \item They increase the number of parameters.
+    \item They reduce the number of connections to the next layer. 
+    \item They reduce the number of parameters.
+\end{enumerate}","a, c, d. \, b is false because pooling neither adds to nor subtracts from parameters.","The correct answers are:
+
+a) They reduce the size of the input to the next layer.
+c) They reduce the number of connections to the next layer.
+d) They reduce the number of parameters.
+
+Pooling layers in Convolutional Neural Networks (ConvNets or CNNs) are used to reduce the spatial size of the representation, which helps to reduce the number of parameters and computational costs. Pooling layers typically use a simple operation, such as max pooling or average pooling, to summarize the information in a local neighborhood of the input. This summary information is then used as the input to the next layer, which helps to reduce the size of the input and the number of connections to the next layer. This also helps to reduce overfitting by reducing the number of parameters, as well as to provide translation invariance by allowing the network to recognize objects regardless of their location in the image.
+",1,,,
+4,"Consider the following CNN architecture:
+
+Input: (10, 10, 3)
+\begin{enumerate}[label=-]
+\item A convolutional layer with 32 5 × 5 filters, stride 1, and padding 2
+
+\item A ReLU activation layer
+
+\item A max pooling layer with size 2 and stride 2
+
+\item A convolutional layer with 64 5 × 5 filters, stride 1, and padding 2
+
+\item A ReLU activation layer
+
+\item A max pooling layer with size 2 and stride 2
+
+\item A fully-connected layer with 128 neurons
+
+\item A ReLU activation layer
+
+\item A dropout layer with drop probability 0.5
+
+\item A fully-connected layer with 10 neurons
+
+\item A softmax activation layer
+\end{enumerate}
+What is the total number of parameters in this network?","The learnable parameters in this CNN architecture are:
+\begin{itemize}
+    \item[•]
+    $32 \times (5 \times 5 \times 3 + 1) = 2432$ parameters from the first convolutional layer
+    \item[•]
+    $64 \times (5 \times 5 \times 32 + 1) = 51264$ parameters from the second convolutional layer
+    \item[•]
+    $128 \times (2 \times 2 \times 64 + 1) = 32896$ parameters from the first fully-connected layer
+    \item[•]
+    $10 \times (128 + 1) = 1290$ parameters from the second fully-connected layer
+\end{itemize}
+Note that all the ``$+1$''s account for the bias terms, $(5, 5, 32)$ is the input shape after the 1st max pooling, and $(2, 2, 64)$ is the input shape after the 2nd max pooling.  Adding up these numbers, we get $87882$ learnable parameters in total.  (Alternatively, if you did not account for any bias term, you would get $63306$ learnable parameters in total, which is also accepted as correct answer.)","The total number of parameters in this network can be calculated as follows:
+
+Convolutional layer 1: 32 filters with 5 × 5 kernel size, so there are 32 * (5 * 5 * 3 + 1) = 32 * 26 = 832 parameters.
+
+Convolutional layer 2: 64 filters with 5 × 5 kernel size, so there are 64 * (5 * 5 * 32 + 1) = 64 * 832 = 53248 parameters.
+
+Fully-connected layer 1: 128 neurons, so there are 128 * (7 * 7 * 64 + 1) = 128 * 3136 = 401408 parameters.
+
+Fully-connected layer 2: 10 neurons, so there are 10 * (128 + 1) = 1290 parameters.
+
+The total number of parameters in the network is 832 + 53248 + 401408 + 1290 = 453878 parameters.",0,,,
+5,"What is the convolution of filter $K$ with image $X$? %$K = [[0, 1, 0], [1, -4, 1], [0, 1, 0]]$
+$$K = \left(\begin{matrix}
+0 & 1 & 0\\
+1 & -4 & 1\\
+0 & 1 & 0
+\end{matrix}\right)$$
+
+$$X = \left(\begin{matrix}
+1 & 1 & 4 & 4\\
+1 & 1 & 4 & 4\\
+1 & 1 & 4 & 4\\
+1 & 1 & 4 & 4
+\end{matrix}\right)$$","[[3, -3], [3, -3]].","The convolution of filter $K$ with image $X$ can be calculated as follows:
+
+We start by placing the filter $K$ at the top left corner of the image $X$.
+
+We then element-wise multiply the values in the filter with the values in the overlapping part of the image.
+
+We then sum up the values obtained from the multiplication, which gives us the value of the output feature map at the corresponding position.
+
+We repeat this process for every position in the image by sliding the filter one step at a time, either vertically or horizontally, until we have covered the entire image.
+
+For example, for the first position in the output feature map, the calculation would be:
+
+$(0 * 1) + (1 * 1) + (0 * 1) + (1 * 1) + (-4 * 1) + (1 * 1) + (0 * 1) + (1 * 1) + (0 * 1) = -2$
+
+The final output feature map would be a 2-D matrix with the same number of rows and columns as the output, which in this case would be:
+
+-2 & -1 & 0 & 1\\
+-1 & -2 & -1 & 0\\
+0 & -1 & -2 & -1\\
+1 & 0 & -1 & -2
+\end{matrix}\right)$$
+",0,,,
+6,"For the flattened image represented by the vector x = [1, 0, 1, 0, 0, 0, 0, 1, 1, 1] and filter k = [-1, 1, -1] what is the convolution of k with x with stride 1 and no padding?","[-2, 1, -1, 0, 0, -1, 0, -1].  Simply apply the rules of 1D convolution.","The convolution of filter $k$ with image $x$ can be calculated as follows:
+
+The convolution starts by placing the filter $k$ at the first position of the image $x$.
+
+Element-wise multiplication is performed between the values in the filter and the values in the overlapping part of the image.
+
+The values obtained from the multiplication are summed up, which gives us the value of the output feature map at the corresponding position.
+
+The filter is then shifted one step to the right, and the process is repeated until the filter has covered all the positions in the image.
+
+For example, for the first position in the output feature map, the calculation would be:
+
+$(-1 * 1) + (1 * 0) + (-1 * 1) = -2$
+
+For the second position, the calculation would be:
+
+$(-1 * 0) + (1 * 1) + (-1 * 0) = 1$
+
+And so on. The final output feature map would be a 1-D vector with the same length as the number of steps taken by the filter, which in this case would be:
+
+$[-2, 1, -2, 0, 0, 0, 0, 1, -1, 0]$",0,,,
+7,"What is the result of performing average pooling on the image $X$?% = [[1, 17, 43, 4, 5], [2, 2, 6, 8, 7], [12, 9, 4, 46, 5], [3, 4, 78, 9, 62],[12, 11, 14, 42, 15] 
+
+$$X = \left(\begin{matrix}
+1 & 17 & 43 & 4 & 5\\
+2 & 2 & 6 & 8 & 7\\
+12 & 9 & 4 & 46 & 5\\
+3 & 4 & 78 & 9 & 62\\
+12 & 11 & 14 & 42 & 15
+\end{matrix}\right)$$
+
+
+with a $2\times2$ kernel, with stride of 2, and padding with values of (1, 1) pixel on the right side and bottom of the image.","[[5.5, 15.25, 3.5], [7, 34.25, 17.25], [6.25, 14.5, 4.5]].  Note that the padded image is X' = [[1, 17, 43, 4, 5, 1], [2, 2, 6, 8, 7, 1], [12, 9, 4, 46, 5, 1], [3, 4, 78, 9, 62, 1],[12, 11, 14, 42, 15, 1], [1, 1, 1, 1, 1, 1]], and the value of each pixel is the sum of the four values of the kernel divided by $4$.","In average pooling, the input image is divided into non-overlapping windows, and the average value of the elements within each window is computed to produce the corresponding element in the output feature map.
+
+For the given image, with a $2\times2$ kernel and stride of 2, the result of performing average pooling on the image would be:
+
+[2
++
+2
++
+12
++
+9
+4
+43
++
+6
++
+4
++
+78
+4
+12
++
+11
++
+3
++
+4
+4
+42
++
+8
++
+9
++
+62
+4
+]
+=
+[
+7
+24
+8
+33
+]
+[ 
+4
+2+2+12+9
+​
+ 
+4
+12+11+3+4
+​
+ 
+​
+  
+4
+43+6+4+78
+​
+ 
+4
+42+8+9+62
+​
+ 
+​
+ ]=[ 
+7
+8
+​
+  
+24
+33
+​
+ ]
+Note that padding with values of (1, 1) pixel on the right side and bottom of the image would increase the size of the image, but it does not affect the result of average pooling operation.",0,,,
+8,"How many weights are in the max pooling operation of the image $X$ above with a 2x2 kernel, with stride of 2, and padding with a value of 1, 1 pixel on the right side and bottom of the image.",0.  Max pooling layers don't have learnable parameters.,"Max pooling does not have weights, as it is a down-sampling operation that takes the maximum value in a small region (or ""kernel"") of the input. The purpose of max pooling is to reduce the spatial size of the input by taking the maximum value in a given region and discarding the rest, while preserving the important features and reducing the computation required in the next layer.
+
+In this case, the image has a 2x2 kernel, stride of 2, and padding of 1 pixel on the right side and bottom. This means that the max pooling operation will take the maximum value in a 2x2 region of the input, and slide the kernel by 2 pixels each time. The padding will increase the size of the input by adding 1 pixel on the right and bottom, so the spatial size of the input will not change.
+
+The number of values output by the max pooling operation will depend on the size of the input image and the size of the kernel and stride, but the number of weights involved in the operation is 0.",1,,,
+9,"Which of the following is the correct filter for detecting horizontal edges?
+\begin{enumerate}[label=\alph*.]
+    \item[a.]
+$$\left(\begin{matrix}
+1 & 0 & -1\\
+1 & 0 & -1\\
+1 & 0 & -1
+\end{matrix}\right)$$
+    
+    \item[b.]
+$$\left(\begin{matrix}
+1 & 1 & 1\\
+0 & 0 & 0\\
+-1 & -1 & -1
+\end{matrix}\right)$$
+
+    \item[c.]
+$$\left(\begin{matrix}
+1 & -1 & 1\\
+0 & -1 & 0\\
+1 & -1 & 1
+\end{matrix}\right)$$
+
+    \item[d.]
+$$\left(\begin{matrix}
+1 & -1 & -1\\
+1 & 1 & -1\\
+1 & 0 & -1
+\end{matrix}\right)$$
+\end{enumerate}",b.  Horizontal filters is the best for detecting horizontal edges.,"The correct filter for detecting horizontal edges is b.
+
+The filter shown in b is commonly used for detecting horizontal edges in image processing. This filter is designed to detect changes in intensity or color along the horizontal axis by subtracting the value in one pixel from the value in the pixel directly above it. The result of this subtraction will be high for pixels that represent a horizontal edge, and low for pixels that do not.
+
+The other filters shown in options a, c, and d do not have the same pattern of positive and negative values that is optimized for detecting horizontal edges.",1,,,
+10,"Consider one layer of weights in a convolutional neural network processing grayscale images, connecting one layer of units to the next layer of units. Which of the following types of layers has the least parameters?
+\begin{enumerate}[label=\alph*.]
+    \item[a.] A fully-connected layer from 20 hidden units to 4 output units. 
+    \item[b.] A convolutional layer with eight 5 $\times$ 5 filters. 
+    \item[c.] A max-pooling layer that reduces a 10 $\times$ 10 image to a 5 $\times$ 5. 
+    \item[d.] A convolutional layer with ten 3 $\times$ 3 filters. 
+\end{enumerate}","c, because fully-connected layers and convolutional layers with filters have learnable parameters but pooling layers don't.","The correct answer is c. A max-pooling layer does not have any weights and does not introduce any additional parameters to the model. It simply down-samples the input feature map by taking the maximum value over a local region.
+
+A fully-connected layer from 20 hidden units to 4 output units would have 20 * 4 = 80 parameters.
+
+A convolutional layer with eight 5 $\times$ 5 filters would have 8 * 5 * 5 + 8 = 208 parameters.
+
+A convolutional layer with ten 3 $\times$ 3 filters would have 10 * 3 * 3 + 10 = 100 parameters.
+
+So, among the options, the max-pooling layer has the least parameters.",1,,,
+11,"Which of the following are true of convolutional neural networks for image analysis?
+\begin{enumerate}[label=\alph*.]
+    \item[a.] Filters in earlier layers tend to include edge detectors. 
+    \item[b.] Pooling layers reduce the spatial resolution of the image.
+    \item[c.] They have more parameters than fully-connected networks with the same number of layers and the same number of neurons in each layer.
+    \item[d.] A CNN can be trained for unsupervised learning tasks, whereas an ordinary neural net cannot. 
+\end{enumerate}","a, b.  CNNs have generally less parameters than fully-connected networks with the same number of layers and neurons, which is why CNNs are more efficient.  Also, any neural network can be trained to perform unsupervised learning tasks --- at least in principle.","The following statements are true of Convolutional Neural Networks (CNNs) for image analysis:
+
+a. Filters in earlier layers tend to include edge detectors.
+b. Pooling layers reduce the spatial resolution of the image.
+
+The following statement is false:
+
+c. They have more parameters than fully-connected networks with the same number of layers and the same number of neurons in each layer. (It is often the case that CNNs have fewer parameters than fully-connected networks with the same number of neurons, due to the weight sharing mechanism inherent to convolutional layers.)
+
+The following statement is also false:
+
+d. A CNN can be trained for unsupervised learning tasks, whereas an ordinary neural net cannot. (Both CNNs and fully-connected neural networks can be trained for supervised and unsupervised learning tasks.)",1,,,
+12,"Given an input image $X$, and the kernel $K$, with a stride of 1, and a zero padding of 1 pixel around the image. What is the output of convolution of $K$ with $X$ with stride 1 and zero padding of size one?\\
+
+$$X = \left(\begin{matrix}
+1 & 2 & 1\\
+3 & 4 & 3\\
+2 & 1 & 2\\
+4 & 3 & 4
+\end{matrix}\right)$$
+
+$$K = \left(\begin{matrix}
+1 & 1\\
+2 & 2
+\end{matrix}\right)$$","[[2, 6, 6, 2], [7, 17, 17, 7], [7, 13, 13, 7], [10, 17, 17,10], [4, 7, 7, 4]][[2, 6, 6, 2], [7, 17, 17, 7], [7, 13, 13, 7], [10, 17, 17,10], [4, 7, 7, 4]].","The output of the convolution of $K$ with $X$ with stride 1 and zero padding of size one would be:
+
+14 & 16 & 14\\
+16 & 18 & 16\\
+14 & 16 & 14
+\end{matrix}\right)$$
+To calculate the output, we would first add a zero padding of size one around the input image $X$, so that the new image becomes:
+$$\left(\begin{matrix}
+0 & 0 & 0 & 0 & 0\\
+0 & 1 & 2 & 1 & 0\\
+0 & 3 & 4 & 3 & 0\\
+0 & 2 & 1 & 2 & 0\\
+0 & 4 & 3 & 4 & 0\\
+\end{matrix}\right)$$
+Next, we would perform the convolution by sliding the kernel $K$ over the padded image, element-wise multiplying and summing the entries in each position of the kernel with the corresponding entries in the image, and placing the result in the output matrix. For example, the first entry in the output matrix would be obtained by multiplying the entries in the top-left corner of the kernel with the entries in the corresponding position of the image, and summing the result:
+$$\left(\begin{matrix}
+1 & 1\\
+2 & 2
+\end{matrix}\right) \times \left(\begin{matrix}
+1 & 2\\
+3 & 4
+\end{matrix}\right) = 1 \times 1 + 1 \times 2 + 2 \times 3 + 2 \times 4 = 14$$
+The process would be repeated for every position in the output matrix.",0,,,
+13,Describe the advantages of the Transformer architecture over CNNs and RNNs.,"The Transformer architecture utilizes an attention mechanism that allows it to learn the context of a given sequence, allowing it to better understand the input sequence. This attention mechanism allows the Transformer architecture to better capture long-term dependencies which are difficult to capture with CNNs and RNNs. Unlike RNNs, the Transformer architecture can process multiple parts of a sequence in parallel, allowing it to process data faster and more efficiently.","The Transformer architecture, introduced in the paper ""Attention is All You Need"" by Vaswani et al., has several advantages over Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs):
+
+Parallelization: Transformers can be trained in parallel, allowing for faster training on GPUs. This is because the self-attention mechanism used in Transformers does not require sequential processing, unlike RNNs, which are inherently sequential.
+
+Scalability to longer sequences: RNNs tend to struggle when processing long sequences, as the information has to be passed through the network for each time step, leading to the vanishing gradient problem. In contrast, Transformers use self-attention mechanisms that can process all parts of a sequence in parallel, allowing them to handle longer sequences more effectively.
+
+Better handling of variable-length input: Transformers can handle variable-length input sequences more easily than RNNs, as they do not require the input sequences to be padded to a fixed length.
+
+Better handling of relationships between elements in the input: The self-attention mechanism in Transformers allows the model to dynamically weight the importance of different elements in the input sequence, which can be useful for capturing relationships between elements.
+
+Improved interpretability: The self-attention mechanism in Transformers can be interpreted as the model attending to different parts of the input to make a prediction, which makes the model more interpretable compared to black box models like fully-connected networks.
+
+It's worth noting that Transformers are not a replacement for CNNs and RNNs, but rather a complementary architecture that can be applied to specific tasks where their strengths are advantageous.",1,,,
+14,"Which of the following is true of the weights in a recurrent neural network?
+\begin{enumerate}[label=\alph*.]
+    \item[a.] The weights are shared between all time steps.
+    \item[b.] The weights are different for each time step.
+    \item[c.] The weights are different for each input.
+    \item[d.] The weights are different for each output.
+\end{enumerate}",a.,"The correct answer is a. The weights are shared between all time steps.
+
+In a recurrent neural network (RNN), the same set of weights is used at each time step in the input sequence. This allows the RNN to learn features that persist across different time steps, and maintain information from the previous time step as the input sequence is processed. The weights in the RNN are updated during training to minimize the prediction error on the training data.",1,,,
+15,"What is the output $s_3$ of the following RNN?
+\begin{equation*}
+        x_1 = 1, x_2 = 1, x_3 = 1, w = 1, u = 1, v = 1, s_0 = 0\\
+\end{equation*}
+\begin{equation*}
+        s_1 = w \cdot s_0 + x_1
+\end{equation*}
+\begin{equation*}
+        v_1 = s_1
+\end{equation*}
+\begin{equation*}
+        s_2 = w \cdot s_1 + x_2
+\end{equation*}
+\begin{equation*}
+        v_2 = s_2
+\end{equation*}
+\begin{equation*}
+        s_3 = w \cdot s_2 + x_3 = \,\, \mathbf{?}
+\end{equation*}",3,"Given the following RNN:
+
+\begin{equation*}
+x_1 = 1, x_2 = 1, x_3 = 1, w = 1, u = 1, v = 1, s_0 = 0\
+\end{equation*}
+\begin{equation*}
+s_1 = w \cdot s_0 + x_1 = 1
+\end{equation*}
+\begin{equation*}
+v_1 = s_1 = 1
+\end{equation*}
+\begin{equation*}
+s_2 = w \cdot s_1 + x_2 = 2
+\end{equation*}
+\begin{equation*}
+v_2 = s_2 = 2
+\end{equation*}
+
+The output $s_3$ is:
+
+\begin{equation*}
+s_3 = w \cdot s_2 + x_3 = w \cdot 2 + 1 = 3
+\end{equation*}
+
+So $s_3 = 3$.",1,,,
+16,"Which of the following is true of the LSTM cell?
+\begin{enumerate}[label=\alph*.]
+    \item[a.] It is a more general form of the RNN cell 
+    \item[b.] It is a more general form of the GRU cell 
+    \item[c.] It is a less general form of the GRU cell 
+    \item[d.] It is a less general form of the RNN cell
+\end{enumerate}",a and c.,"The correct answer is b. It is a more general form of the GRU cell.
+
+Long Short-Term Memory (LSTM) cells are a type of Recurrent Neural Network (RNN) architecture that are designed to address the issue of vanishing gradients in traditional RNNs. The LSTM cell has several gates that control the flow of information into and out of the cell state, allowing it to preserve information from the past for longer periods of time.
+
+The Gated Recurrent Unit (GRU) is a simplified version of the LSTM cell that combines the forget and input gates into a single update gate, making it a less complex architecture. However, the LSTM cell provides more opportunities for control over the flow of information, making it a more general form of the GRU cell.",0,,,
+17,"For which of the following sequences can the next character be correctly predicted by a model using only the previous character?
+\begin{enumerate}[label=\alph*.]
+    \item[a.] $1, 1, 1, -1, 1, 1, 1, -1, ?$
+    \item[b.] $1, -1, 1, -1, 1, -1, ?$
+    \item[c.] $1, 1, -1, 1, 1, -1, 1, 1, -1, ?$
+    \item[d.] $-1, -1, 1, -1, -1, 1, ?$
+\end{enumerate}",b.,"The correct answer is b. The sequence $1, -1, 1, -1, 1, -1, ?$ can be correctly predicted by a model using only the previous character.
+
+This type of sequence, with alternating values of $1$ and $-1$, has a clear pattern that can be learned by the model. By using the previous character as input, the model can predict the next character in the sequence by simply alternating between $1$ and $-1$.
+
+For the other sequences, the pattern is not as clear and additional information beyond just the previous character may be required to make accurate predictions.",1,,,
+18,"What is the weight $w$ for an RNN which has input $( x_1 , x_2 , x_3 ) = ( 1 , 1 , 1 )$ and output $( v_1 , v_2 , v_3 ) = ( 1 , 2 , 3 )$ and is defined by $s_t = w \cdot s_{t - 1} + x_t$ and $v_t = s_t$?",1,"We can find the weight $w$ using the given information. Let $s_0$ be the initial state, then we have:
+
+\begin{equation*}
+s_1 = w \cdot s_0 + x_1 = w \cdot s_0 + 1
+\end{equation*}
+
+\begin{equation*}
+v_1 = s_1 = w \cdot s_0 + 1
+\end{equation*}
+
+\begin{equation*}
+s_2 = w \cdot s_1 + x_2 = w \cdot (w \cdot s_0 + 1) + 1 = w^2 \cdot s_0 + w + 1
+\end{equation*}
+
+\begin{equation*}
+v_2 = s_2 = w^2 \cdot s_0 + w + 1
+\end{equation*}
+
+\begin{equation*}
+s_3 = w \cdot s_2 + x_3 = w \cdot (w^2 \cdot s_0 + w + 1) + 1 = w^3 \cdot s_0 + w^2 + w + 1
+\end{equation*}
+
+\begin{equation*}
+v_3 = s_3 = w^3 \cdot s_0 + w^2 + w + 1
+\end{equation*}
+
+We are given that $v_1 = 1$, $v_2 = 2$, and $v_3 = 3$, so we can use these equations to solve for $w$:
+
+\begin{equation*}
+1 = w \cdot s_0 + 1
+\end{equation*}
+
+\begin{equation*}
+2 = w^2 \cdot s_0 + w + 1
+\end{equation*}
+
+\begin{equation*}
+3 = w^3 \cdot s_0 + w^2 + w + 1
+\end{equation*}
+
+Solving these equations simultaneously, we can find $w = 2$. This means that the weight $w$ is equal to 2.",0,,,
+19,"Given an RNN defined by $s_t = W \cdot s_{t - 1} + U \cdot x_t$ with $W = [ [ -1 , 0 ] , [ 0 , -1 ] ]$, $U = [ [ 1 ] , [ 1 ] ]$, and $s_0 = [ [ 0 ] , [ 0 ] ]$, what is $s_2$ for $x = ( x_1 , x_2 ) = ( 1 , 0 )$?","$[-1, -1]$.","We can calculate the hidden state $s_t$ for each time step $t$ by starting with the initial hidden state $s_0$ and iteratively updating it with the input and weight matrices $x_t$ and $W$:
+
+$s_1 = W \cdot s_0 + U \cdot x_1 = W \cdot [ [ 0 ] , [ 0 ] ] + U \cdot [ [ 1 ] ] = [ [ 1 ] , [ 1 ] ]$
+
+$s_2 = W \cdot s_1 + U \cdot x_2 = W \cdot [ [ 1 ] , [ 1 ] ] + U \cdot [ [ 0 ] ] = [ [ -1 ] , [ -1 ] ]$
+
+Therefore, the hidden state $s_2$ is $[ [ -1 ] , [ -1 ] ]$.",1,,,
+20,Suppose you would like to classify restaurant reviews as good or bad. Why is a bag of words not an appropriate solution? Explain.,A bag-of-words representation does not take into account word order which is important for classifying reviews.,"A bag of words approach to classifying restaurant reviews as good or bad is not appropriate for several reasons:
+
+Lack of context: A bag of words representation only considers the frequency of individual words in a document, but it doesn't take into account the context in which they appear. For example, a review containing the word ""bad"" could either mean that the restaurant is bad, or that the reviewer's experience was bad.
+
+Word ambiguity: Some words can have different meanings depending on the context, making it difficult to determine their sentiment. For example, the word ""good"" could indicate a positive sentiment, but it could also mean ""well-made"" or ""tasty"".
+
+Word order: The order in which words appear can also convey important information about sentiment. For example, the sentence ""The food was not good"" and ""The food was good"" convey completely different sentiments, even though they contain the same words.
+
+Overall, a bag of words representation does not capture the rich linguistic information necessary to accurately classify sentiment in restaurant reviews. More sophisticated models, such as those based on neural networks, are better suited to this task.",1,,,
+21,"Select the best type of model for each use case, matching the use case to the options provided:
+
+\noindent
+Use cases:
+\begin{enumerate}[label=\alph*.]
+    \item[1.]
+    Tumor segmentation analysis or recognizing tumor patches in medical ``slides''.
+    \item[2.]
+    Sentiment analysis on a large text corpus.
+    \item[3.]
+    Time series forecasting to predict price of automobile in the next month.
+    \item[4.]
+    Predict the price of a house based on square feet, ratio of bedrooms/bathrooms.
+\end{enumerate}
+
+\noindent
+Options: CNN, RNN, Fully connected neural network","(1) CNN, (2) RNN, (3) RNN, (4) Fully connected neural network.","Use cases and best type of model:
+
+Tumor segmentation analysis or recognizing tumor patches in medical ""slides"": CNN
+Sentiment analysis on a large text corpus: Fully connected neural network
+Time series forecasting to predict price of automobile in the next month: RNN
+Predict the price of a house based on square feet, ratio of bedrooms/bathrooms: Fully connected neural network",0,,,
+22,"What is the benefit of using attention in RNN?
+\begin{enumerate}[label=\alph*.]
+    \item[a.] We can model long dependencies.
+    \item[b.] The inputs are processed in parallel rather than sequentially.
+    \item[c.] Resolves vanishing gradients.
+    \item[d.] All of the above.
+\end{enumerate}",d.,"d. All of the above.
+
+Using attention in RNNs provides several benefits, including:
+a. Modeling long dependencies: Attention allows the RNN to selectively focus on the most relevant parts of the input sequence when making predictions. This is particularly useful when the input sequence is very long, as it can be difficult for the RNN to capture long-term dependencies using only its hidden state.
+b. Processing inputs in parallel: Attention allows the RNN to process the input sequence in parallel, rather than sequentially, by giving it the ability to selectively attend to different parts of the input at each time step.
+c. Resolving vanishing gradients: By allowing the RNN to selectively focus on the most relevant parts of the input sequence, attention can help to mitigate the problem of vanishing gradients, which can occur when gradients propagated through the RNN become very small and make it difficult to update the model parameters.",1,,,

@@ -1,0 +1,14 @@
+{
+    "Id": "10",
+    "Question": "Consider one layer of weights in a convolutional neural network processing grayscale images, connecting one layer of units to the next layer of units. Which of the following types of layers has the least parameters?\n\\begin{enumerate}[label=\\alph*.]\n    \\item[a.] A fully-connected layer from 20 hidden units to 4 output units. \n    \\item[b.] A convolutional layer with eight 5 $\\times$ 5 filters. \n    \\item[c.] A max-pooling layer that reduces a 10 $\\times$ 10 image to a 5 $\\times$ 5. \n    \\item[d.] A convolutional layer with ten 3 $\\times$ 3 filters. \n\\end{enumerate}",
+    "Solution": "c, because fully-connected layers and convolutional layers with filters have learnable parameters but pooling layers don't.",
+    "ChatGPTSolution": "The correct answer is c. A max-pooling layer does not have any weights and does not introduce any additional parameters to the model. It simply down-samples the input feature map by taking the maximum value over a local region.\n\nA fully-connected layer from 20 hidden units to 4 output units would have 20 * 4 = 80 parameters.\n\nA convolutional layer with eight 5 $\\times$ 5 filters would have 8 * 5 * 5 + 8 = 208 parameters.\n\nA convolutional layer with ten 3 $\\times$ 3 filters would have 10 * 3 * 3 + 10 = 100 parameters.\n\nSo, among the options, the max-pooling layer has the least parameters.",
+    "Grade": "1",
+    "SimilarQuestions": [
+        10,
+        2,
+        13
+    ],
+    "FewShotAnswer": "",
+    "FewSHotEvaluation": ""
+}

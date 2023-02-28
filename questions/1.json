@@ -1,0 +1,14 @@
+{
+    "Id": "2",
+    "Question": "Which of the following are true of convolutional neural networks for image analysis? \n\\begin{enumerate}[label=\\alph*.]\n    \\item They are trained using backpropagation. \n    \\item They are trained using gradient descent.\n    \\item They are trained using supervised learning . \n    \\item They are trained using unsupervised learning.\n\\end{enumerate}",
+    "Solution": "a, b, and c.",
+    "ChatGPTSolution": "a) They are trained using backpropagation.\nc) They are trained using supervised learning.\n\nConvolutional neural networks (ConvNets or CNNs) are a type of deep neural network commonly used for image analysis tasks such as image classification, object detection, and semantic segmentation. ConvNets are typically trained using supervised learning, where a labeled dataset is used to train the network to perform a specific task. During training, the network uses backpropagation to adjust the weights of the filters in the convolutional layers to minimize the difference between the predicted output and the actual output. The optimization process is typically performed using gradient descent algorithms, which help the network to converge to a solution.",
+    "Grade": "0",
+    "SimilarQuestions": [
+        10,
+        2,
+        13
+    ],
+    "FewShotAnswer": "",
+    "FewSHotEvaluation": ""
+}
