@@ -9,6 +9,6 @@
         0,
         14
     ],
-    "FewShotAnswer": "",
+    "FewShotAnswer": "\n\n$$\\text{Output} = \\left(\\begin{matrix}\n9 & 10 & 9\\\\\n11 & 12 & 11\\\\\n9 & 10 & 9\n\\end{matrix}\\right)$$\n\n$$\\text{Output} = \\left(\\begin{matrix}\n9 & 10 & 9\\\\\n11 & 12 & 11\\\\\n9 & 10 & 9\n\\end{matrix}\\right)$$\n\n$$\\text{Output} = \\left(\\begin{matrix}\n9 & 10 & 9\\\\\n11 & 12 & 11\\\\\n9 & 10 & 9\n\\end{matrix}\\right)$$\n\n$$\\text{Output} = \\left(\\begin{matrix}\n9 & 10 & 9\\\\\n11 & 12 & 11\\\\\n9 & 10 & 9\n\\end{matrix}\\right)$$\n\n$$\\text{Output} = \\left(\\begin{matrix}\n9 & 10 & 9\\\\\n11 & 12 & 11\\\\\n9 & 10 & 9\n\\end{matrix}\\right)$$\n\n$$\\text{Output} = \\left(\\begin{matrix}\n9 &",
     "FewSHotEvaluation": ""
 }

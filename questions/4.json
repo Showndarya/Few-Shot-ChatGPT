@@ -9,6 +9,6 @@
         8,
         9
     ],
-    "FewShotAnswer": "",
+    "FewShotAnswer": "\n\n\\begin{enumerate}[label=\\alph*.]\n    \\item[a.]\n$$\\left(\\begin{matrix}\n-4 & -4 & -4 & -4\\\\\n-4 & -4 & -4 & -4\\\\\n-4 & -4 & -4 & -4\\\\\n-4 & -4 & -4 & -4\n\\end{matrix}\\right)$$\n    \n    \\item[b.]\n$$\\left(\\begin{matrix}\n-4 & -4 & -4 & -4\\\\\n-4 & -4 & -4 & -4\\\\\n-4 & -4 & -4 & -4\\\\\n-4 & -4 & -4 & -4\n\\end{matrix}\\right)$$\n\n    \\item[c.]\n$$\\left(\\begin{matrix}\n-4 & -4 & -4 & -4\\\\\n-4 & -4 & -4 & -4\\\\\n-4 & -4 & -4 & -4\\\\\n-4 & -4 & -4 & -4\n\\end{matrix}\\right)$$\n\n    \\",
     "FewSHotEvaluation": ""
 }

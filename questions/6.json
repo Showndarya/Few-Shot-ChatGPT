@@ -9,6 +9,6 @@
         0,
         9
     ],
-    "FewShotAnswer": "",
+    "FewShotAnswer": "\n\n$$\\left(\\begin{matrix}\n9.5 & 5.5\\\\\n11.5 & 13.5\n\\end{matrix}\\right)$$\n\nThe average pooling operation is the same as the max pooling operation except that instead of taking the maximum value in the kernel, we take the average value.  The average pooling operation is the same as the max pooling operation except that instead of taking the maximum value in the kernel, we take the average value. \n\n$$\\left(\\begin{matrix}\n9.5 & 5.5\\\\\n11.5 & 13.5\n\\end{matrix}\\right)$$\n\nThe average pooling operation is the same as the max pooling operation except that instead of taking the maximum value in the kernel, we take the average value. \n\n$$\\left(\\begin{matrix}\n9.5 & 5.5\\\\\n11.5 & 13.5\n\\end{matrix}\\right)$$\n\nThe average pooling operation is the same as the max pooling operation except that instead of taking the maximum value in the kernel, we take the average value. \n\n$$",
     "FewSHotEvaluation": ""
 }

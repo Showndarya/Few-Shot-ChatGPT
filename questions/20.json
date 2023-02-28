@@ -9,6 +9,6 @@
         9,
         12
     ],
-    "FewShotAnswer": "",
+    "FewShotAnswer": ", Transformer\n\n\\noindent\n1. CNN\n2. RNN\n3. Fully connected neural network\n4. Transformer\n\n\\noindent\nCNNs are good at image analysis, RNNs are good at text analysis, fully connected neural networks are good at tabular data, and Transformers are good at text analysis.\n\n\\end{document}",
     "FewSHotEvaluation": ""
 }

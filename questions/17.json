@@ -9,6 +9,6 @@
         18,
         13
     ],
-    "FewShotAnswer": "",
+    "FewShotAnswer": "$1$.What is the output $s_3$ of the following RNN?\n\\begin{equation*}\n        x_1 = 1, x_2 = 1, x_3 = 1, w = 1, u = 1, v = 1, s_0 = 0\\\\\n\\end{equation*}\n\\begin{equation*}\n        s_1 = w \\cdot s_0 + x_1\n\\end{equation*}\n\\begin{equation*}\n        v_1 = s_1\n\\end{equation*}\n\\begin{equation*}\n        s_2 = w \\cdot s_1 + x_2\n\\end{equation*}\n\\begin{equation*}\n        v_2 = s_2\n\\end{equation*}\n\\begin{equation*}\n        s_3 = w \\cdot s_2 + x_3 = \\,\\, \\mathbf{?}\n\\end{equation*}3Given an RNN defined by $s_t = W \\cdot s_{t - 1} +",
     "FewSHotEvaluation": ""
 }

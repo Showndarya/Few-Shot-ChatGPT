@@ -9,6 +9,6 @@
         2,
         13
     ],
-    "FewShotAnswer": "",
+    "FewShotAnswer": "a, b, c.  CNNs are trained using supervised learning, and they are trained using backpropagation and gradient descent.  CNNs can also be trained using unsupervised learning, but this is not a requirement.Which of the following are true of convolutional neural networks for image analysis?\n\\begin{enumerate}[label=\\alph*.]\n    \\item[a.] They are trained using backpropagation.\n    \\item[b.] They are trained using gradient descent.\n    \\item[c.] They are trained using supervised learning.\n    \\item[d.] They are trained using unsupervised learning.\n\\end{enumerate}a, b, c.  CNNs are trained using supervised learning, and they are trained using backpropagation and gradient descent.  CNNs can also be trained using unsupervised learning, but this is not a requirement.Which of the following are true of convolutional neural networks for image analysis?\n\\begin{enumerate}[label=\\alph*.]\n    \\item[a.] They are trained using backpropagation.\n    \\item[b.] They are trained using gradient descent",
     "FewSHotEvaluation": ""
 }
