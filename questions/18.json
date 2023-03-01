@@ -9,6 +9,7 @@
         16,
         7
     ],
+    "FewShotQuestion": "",
     "FewShotAnswer": "",
-    "FewSHotEvaluation": ""
+    "FewSHotEvaluation": null
 }

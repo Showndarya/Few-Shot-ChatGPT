@@ -5,6 +5,7 @@
     "ChatGPTSolution": "d. All of the above.\n\nUsing attention in RNNs provides several benefits, including:\na. Modeling long dependencies: Attention allows the RNN to selectively focus on the most relevant parts of the input sequence when making predictions. This is particularly useful when the input sequence is very long, as it can be difficult for the RNN to capture long-term dependencies using only its hidden state.\nb. Processing inputs in parallel: Attention allows the RNN to process the input sequence in parallel, rather than sequentially, by giving it the ability to selectively attend to different parts of the input at each time step.\nc. Resolving vanishing gradients: By allowing the RNN to selectively focus on the most relevant parts of the input sequence, attention can help to mitigate the problem of vanishing gradients, which can occur when gradients propagated through the RNN become very small and make it difficult to update the model parameters.",
     "Grade": "1",
     "SimilarQuestions": "",
+    "FewShotQuestion": "",
     "FewShotAnswer": "",
-    "FewSHotEvaluation": ""
+    "FewSHotEvaluation": null
 }
